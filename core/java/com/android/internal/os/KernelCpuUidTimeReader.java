@@ -828,7 +828,7 @@ public abstract class KernelCpuUidTimeReader<T> {
             for (int i = 0; i < mNumClusters; i++) {
                 mDeltaTime[i] = mCurTime[i] - lastTimes[i];
                 if (mDeltaTime[i] < 0) {
-                    Slog.e(mTag, "Negative delta from cluster time for uid: " + uid
+                    if (DEBUG) Slog.e(mTag, "Negative delta from cluster time for uid: " + uid
                             + ", delta: " + mDeltaTime[i]);
                     return;
                 }
